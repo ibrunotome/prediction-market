@@ -1,3 +1,5 @@
+'use cache'
+
 import { setRequestLocale } from 'next-intl/server'
 import { Suspense } from 'react'
 import AffiliateQueryHandler from '@/app/[locale]/(platform)/_components/AffiliateQueryHandler'
