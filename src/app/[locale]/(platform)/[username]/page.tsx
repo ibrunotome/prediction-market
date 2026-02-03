@@ -1,5 +1,3 @@
-'use cache'
-
 import type { Metadata } from 'next'
 import { setRequestLocale } from 'next-intl/server'
 import { notFound } from 'next/navigation'
@@ -12,6 +10,8 @@ import { STATIC_PARAMS_PLACEHOLDER } from '@/lib/static-params'
 import { normalizeAddress } from '@/lib/wallet'
 
 export async function generateMetadata({ params }: PageProps<'/[locale]/[username]'>): Promise<Metadata> {
+  'use cache'
+
   const { locale, username } = await params
   setRequestLocale(locale)
   if (username === STATIC_PARAMS_PLACEHOLDER) {
@@ -31,6 +31,8 @@ export async function generateStaticParams() {
 }
 
 export default async function ProfilePage({ params }: PageProps<'/[locale]/[username]'>) {
+  'use cache'
+
   const { locale, username } = await params
   setRequestLocale(locale)
   if (username === STATIC_PARAMS_PLACEHOLDER) {

@@ -1,11 +1,13 @@
-'use cache'
-
+import { setRequestLocale } from 'next-intl/server'
 import { Suspense } from 'react'
 import NavigationTab from '@/app/[locale]/(platform)/_components/NavigationTab'
 import { Skeleton } from '@/components/ui/skeleton'
 import { TagRepository } from '@/lib/db/queries/tag'
 
-export default async function NavigationTabs() {
+export default async function NavigationTabs({ locale }: { locale: string }) {
+  'use cache'
+
+  setRequestLocale(locale)
   const { data, globalChilds = [] } = await TagRepository.getMainTags()
 
   const sharedChilds = globalChilds.map(child => ({ ...child }))

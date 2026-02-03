@@ -8,6 +8,8 @@ export const metadata: Metadata = {
 }
 
 export default async function MentionsPage({ params }: PageProps<'/[locale]/mentions'>) {
+  'use cache'
+
   const { locale } = await params
   setRequestLocale(locale)
 

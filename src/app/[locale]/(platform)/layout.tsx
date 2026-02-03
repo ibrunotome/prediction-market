@@ -37,7 +37,7 @@ export default async function PlatformLayout({ params, children }: LayoutProps<'
         <FilterProvider>
           <Header />
           <Suspense fallback={<NavSkeleton />}>
-            <NavigationTabs />
+            <NavigationTabs locale={locale} />
           </Suspense>
           {children}
           <AffiliateQueryHandler />
